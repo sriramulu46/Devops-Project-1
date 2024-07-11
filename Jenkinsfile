@@ -5,8 +5,7 @@ pipeline {
         nodejs 'node16'
     }
     environment {
-        SMTP_USER = 'srirambsr24@gmail.com'
-        SMTP_PASS = credentials('akvc yyjy avql rvlz')
+       
         SCANNER_HOME = tool 'sonar-scanner'
         APP_NAME = "test"
         RELEASE = "1.0.0"
