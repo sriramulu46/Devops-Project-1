@@ -89,13 +89,15 @@ pipeline {
      }
      post {
         always {
-           emailext attachLog: true,
-               subject: "'${currentBuild.result}'",
-               body: "Project: ${env.JOB_NAME}<br/>" +
-                   "Build Number: ${env.BUILD_NUMBER}<br/>" +
-                   "URL: ${env.BUILD_URL}<br/>",
-               to: 'srirambsr24@gmail.com',                              
-               attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+           emailext (
+                attachLog: true,
+                subject: "'${currentBuild.result}' - Build #${env.BUILD_NUMBER}",
+                body: """<p>Project: ${env.JOB_NAME}</p>
+                        <p>Build Number: ${env.BUILD_NUMBER}</p>
+                        <p>URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
+                to: 'srirambsr24@gmail.com',
+                attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+            )
         }
      }
     
