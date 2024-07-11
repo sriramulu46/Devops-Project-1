@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/sriramulu46/Devops-Project-1.git'
+                git branch: 'master', url: 'https://github.com/sriramulu46/Devops-Project-1.git'
             }
         }
         stage("Sonarqube Analysis") {
